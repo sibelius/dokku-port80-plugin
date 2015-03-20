@@ -37,6 +37,8 @@ server {
 }
 "
 
+rm -f $DOKKU_ROOT/$APP/nginx.conf
+
 echo '-----> Creating nginx.conf to redirect APP to external port 80'
 echo "$template" > $DOKKU_ROOT/$APP/nginx.conf
 
