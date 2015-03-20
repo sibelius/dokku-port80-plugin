@@ -37,9 +37,10 @@ server {
 }
 "
 
-echo "=====> post-deploy - $APP $PORT $INTERNAL_IP $EXTERNAL_IP"
+echo '-----> Creating nginx.conf to redirect APP to external port 80'
+echo "$template" > $DOKKU_ROOT/$APP/nginx.conf
 
-echo "$template" > "$DOKKU_ROOT/$APP/nginx.conf"
-
-# restart nginx service
+echo '-----> Reloading nginx...'
 sudo /etc/init.d/nginx reload > /dev/null
+
+cat
